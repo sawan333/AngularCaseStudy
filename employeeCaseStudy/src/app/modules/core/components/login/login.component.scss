@@ -1,0 +1,18 @@
+:host{
+    font-family: var(--font-family);
+    height: inherit;
+    width: inherit;
+    flex: 1;
+}
+mat-card-header{
+    ::ng-deep{
+        .mat-card-header-text{
+            margin: 0;
+            padding: 0 0 0 0.2rem;
+        }
+    }
+}
+
+mat-card-content{
+    margin: 0.5rem 0 0 0;
+}

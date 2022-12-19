@@ -1,0 +1,40 @@
+<div fxFlex fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginForm" action="#">
+                <div fxLayout="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Employee Id</mat-label>
+                        <input formControlName="empId" matInput placeholder="e12345">
+                        <mat-error *ngIf="loginForm.get('empId')?.errors && (loginForm.controls['empId'].dirty || loginForm.controls['empId'].touched)">
+                            <div *ngIf="loginForm.get('empId')?.hasError('required')">
+                                Employee Id is required
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput [type]="hideFlag ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix 
+                            (click)="hideFlag = !hideFlag" 
+                            [attr.aria-label]="'Hide password'" 
+                            [attr.aria-pressed]="hideFlag">
+                            <mat-icon>{{hideFlag ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="loginForm.get('password')?.errors && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                            <div *ngIf="loginForm.get('password')?.hasError('required')">
+                                Password is required
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end start">
+            <button mat-button color="primary" [disabled]="!loginForm.valid" (click)="doLogin()">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

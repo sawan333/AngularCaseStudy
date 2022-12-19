@@ -1,0 +1,12 @@
+{
+    "employees": [
+        {   
+           "empId": "e5658223",
+           "fname": "Sawan",
+           "lname": "Kumar",
+           "department": "Development",
+           "dateofjoining": "24/09/2020",
+           "password": "pass123"
+        }
+    ]
+}
